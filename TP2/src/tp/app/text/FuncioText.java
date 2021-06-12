@@ -28,8 +28,8 @@ public class FuncioText {
 		
 		PassFuncionario f1 = new PassFuncionario(0,dataC,dataV,d1,datanasc,"Ricardo Costa","@gmail","123",td,"Morada",9876);
 
-		//f1.Carregar(100);
-		//f1.CheckValidade();
+		f1.Carregar(10);
+		f1.CheckValidade();
 		
 		
 		
