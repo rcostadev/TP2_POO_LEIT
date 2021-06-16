@@ -1,6 +1,4 @@
-package tp.ui;
-
-import tp.app.PassStandard;
+package tp.app;
 
 public interface TituloTransporte {
 	

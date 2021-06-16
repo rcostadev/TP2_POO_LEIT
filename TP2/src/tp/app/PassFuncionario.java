@@ -2,8 +2,6 @@ package tp.app;
 
 import java.time.LocalDate;
 
-import tp.ui.TituloTransporte;
-
 public class PassFuncionario extends PassStandard implements TituloTransporte{
 
 	public PassFuncionario(double saldo, LocalDate dataCarrega, LocalDate dataValida,
@@ -20,8 +18,8 @@ public class PassFuncionario extends PassStandard implements TituloTransporte{
 		}else {
 			
 			super.setSaldo(getSaldo()+valor);
-			System.out.println("Carregamento com sucesso!!");
-			System.out.println("Saldo Atual: "+ super.getSaldo());
+			super.setDataCarrega(LocalDate.now());
+			super.setDataValidade(getDataCarrega().plusDays(30));
 		}
 		
 		
@@ -59,7 +57,17 @@ public class PassFuncionario extends PassStandard implements TituloTransporte{
 	}
 
 	
-	
+	public boolean ViagensFree() {
+		
+		if (super.getPontos() >= 100) {
+			super.setPontos(getPontos()-40);
+			System.out.println("Realizas uma viagem Gratis com pontos. Tens: "
+					+super.getPontos()+" Pontos");
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 	

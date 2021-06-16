@@ -15,7 +15,7 @@ public  class PassStandard extends epass {
 	 * 	CLASSES A SEREM IMPLEMENTADOS
 	 * */
 	
-	public String gerarChave(String nome, LocalDate ddn) {
+	public String gerarChave(String nome, LocalDate ddn,long codigo) {
 		StringBuilder strB = new StringBuilder(nome);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("uuu-MM-dd");
 		
@@ -26,9 +26,9 @@ public  class PassStandard extends epass {
 		String strdata = ddn.format(format);
 		
 		
-		this.ChaveValida = auxUlt+aux+strdata;
+		this.ChaveValida = auxUlt+aux+strdata+codigo;
 		this.ChaveValida = this.ChaveValida.toUpperCase();
-		System.out.println("Chave de valida "+ this.ChaveValida);
+		
 		return this.ChaveValida;
 		
 	}
@@ -54,7 +54,7 @@ public  class PassStandard extends epass {
 		  this.pontos = 0;
 		  this.numeroViagem = 0;
 		  this.titular = new Titular( docID, nome,ddn,email);
-		  this.ChaveValida =  gerarChave(nome,ddn); 
+		  this.ChaveValida =  gerarChave(nome,ddn,this.getCodigo()); 
 	  
 	  }
 	  
